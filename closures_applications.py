@@ -24,11 +24,6 @@ def counter(*args):
         print(f'New count is {count}')
     return inner  # create closure
 
-# Introspection can be done through dunder methods
-    # fn.__code__.co_freevars  # returns tuple of all free variables
-    # fn.__closure__  # returns tuple of cell to object addresses
-
-
 counter1 = counter()
 
 

@@ -3,17 +3,18 @@
 # based on the value passed during initialization - eg, incrementing by a different amount
 
 
-def incrementer(increment_value):
+def incrementer(increment_value): # Create first level of closure with free variable increment_value
 
-    def inner(start):
+    def inner(start): # Create second level of closure with free variable start
         current = start
 
         def inc():
-            nonlocal current
-            current += increment_value
-            return current
-        return inc
-    return inner
+            nonlocal current # Set current to a non-local variable so we can directly interact at this level
+            current += increment_value # Utilize the increment_value free variable that was created on initialization
+            return current # Return functionality
+        return inc # Finish inner closure
+    return inner # Finish outer closure
+
 
 
 # now, incrementer functions can be initialized by nesting functions
